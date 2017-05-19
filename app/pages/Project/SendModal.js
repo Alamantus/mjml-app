@@ -66,7 +66,9 @@ class SendModal extends Component {
   }
 
   handleChangeTargetEmails = value => {
-    this.setState({ TargetEmails: value.map(v => v.value) })
+    const emails = value.map(v => v.value)
+    this.props.addToLastUsedEmails(emails)
+    this.setState({ TargetEmails: emails })
     this.debounceSaveInConfig()
   }
 

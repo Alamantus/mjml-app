@@ -20,7 +20,13 @@ export function loadSettings () {
         minify: false,
       },
       projects: [],
-      api: {},
+      api: {
+        APIKey: '',
+        APISecret: '',
+        SenderEmail: '',
+        TargetEmails: [],
+        LastEmails: [],
+      },
       previewSize: {
         current: 500,
         mobile: 320,
@@ -81,5 +87,12 @@ export function saveLastOpenedFolder (path) {
     dispatch(updateSettings(settings => {
       return settings.set('lastOpenedFolder', path)
     }))
+  }
+}
+
+export function addToLastUsedEmails (emails) {
+  return {
+    type: 'ADD_TO_LAST_USED_EMAILS',
+    payload: emails,
   }
 }

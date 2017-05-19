@@ -24,6 +24,11 @@ export default handleActions({
 
   UPDATE_SETTINGS: (state, { payload: updater }) => updater(state),
 
+  ADD_TO_LAST_USED_EMAILS: (state, { payload: emails }) => {
+    console.log(`>>>>>>>>>>>> receiving`, emails)
+    return state
+  },
+
   PROJECT_LOAD: (state, { payload: { path } }) => state.update('projects', p => {
     if (p.find(p => p === path)) { return state }
     return p.unshift(path)
